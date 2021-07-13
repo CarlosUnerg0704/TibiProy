@@ -26,4 +26,5 @@ Route::get('/shop', 'ViewControllers@shop')->name('shop');
 
 
 Route::name('rplayer')->post('/rplayer','ViewControllers@rplayer');
+Route::name('fplayer')->post('/fplayer','ViewControllers@fplayer');
 Route::name('cpassword')->post('/cpassword','ViewControllers@cpassword');

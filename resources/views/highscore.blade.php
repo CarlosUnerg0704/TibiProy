@@ -7,27 +7,48 @@
         <h1 class="mx-auto my-0 text-uppercase">
           highscore
         </h1>
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-8">
-              <div class="card">
-                  <div class="card-header">
-                    Experience Score
+        <table cellspacing="1" cellpadding="4" align="center">
+          <tbody>
+            <tr bgcolor="#505050">
+              <td colspan="3">
+                <b>Lista de Jugadores</b>
+              </td>
+            </tr>
+            <tr bgcolor="#D4C0A1">
+              <td width="30%">Name:</td>
+              <td width="30%"> Level:</td>
+              <td> Vocacion:
+                <div style="float: right">
+                  <div style="float: right">
                   </div>
-                  <div class="card-body">
-                      <table>
-                      	<ul>
-                      		<li>nombre 1</li>
-                      		<li>nombre 2</li>
-                      		<li>nombre 3</li>
-                      	</ul>
+                </div>
+              </td>
+            </tr>
+            @foreach($players as $player)
 
-                      </table>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            <tr bgcolor="#F1E0C6">
+              <td>{{$player->name}}</td>
+              <td>{{$player->level}}</td>
+              <td>@if($player->vocation == 1)
+                                                        Sorcerer
+                                                      @else
+                                                        @if($player->vocation == 2)
+                                                          Druid
+                                                        @else
+                                                          @if($player->vocation == 3)
+                                                            Paladin
+                                                          @else
+                                                            @if($player->vocation == 4)
+                                                              Knight
+                                                            @endif
+                                                          @endif
+                                                        @endif
+                                                      @endif
+                                                    </td>
+            </tr>
+          @endforeach
+          </tbody>
+        </table>
       </div>
     </div>
   </header>

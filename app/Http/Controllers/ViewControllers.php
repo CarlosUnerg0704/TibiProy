@@ -9,6 +9,7 @@ use DB;
 
 class ViewControllers extends Controller
 {
+    
   
     public function cpassword(request $request){
         $name = $request->get('name');
@@ -83,15 +84,24 @@ class ViewControllers extends Controller
     }
 
     public function highscore(){
-
-        return view('highscore');
+        $players = DB::select("select * from players");
+        return view('highscore')->with(['players'=>$players]);
     }
     public function characters(){
-        
-        return view('characters');
+        $char = DB::select("select * from players where id = 1");
+        return view('characters')->with(['char'=>$char]);
     }
     public function shop(){
         
         return view('shop');
+    }
+    public function fplayer(Request $request){
+        $char = DB::select("select * from players where name = ?",array($request->get('name')));
+        if($char == null ){
+            $char = DB::select("select * from players where id = 1");
+            return view('characters',compact('char'));
+        }else{
+            return view('characters',compact('char')); 
+        }
     }	
 }

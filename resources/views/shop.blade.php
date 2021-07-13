@@ -17,9 +17,7 @@
                   <div class="card-body">
                       <table>
                       	<ul>
-                      		<li>producto 1</li>
-                      		<li>producto 2</li>
-                      		<li>producto 3</li>
+                      		CONTACTE AL ADMINISTRADOR
                       	</ul>
 
                       </table>
