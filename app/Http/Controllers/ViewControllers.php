@@ -84,7 +84,12 @@ class ViewControllers extends Controller
     }
 
     public function highscore(){
-        $players = DB::select("select * from players");
+
+        //$players = DB::select("select * from players");
+        $players = DB::table('players')
+                            ->orderBy('level','desc')
+                            ->limit(10)
+                            ->get();
         return view('highscore')->with(['players'=>$players]);
     }
     public function characters(){
